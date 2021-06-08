@@ -276,42 +276,42 @@ namespace DotnetExamConsole
             var score = 0;
             double precent = 0.3;
             var isGood = false;
+            
             if(userInfo.User.Age >= 21 && userInfo.User.Age < 29){
                 if (userInfo.CreditSum < 1000000)
                     score += 12;
                 else if (userInfo.CreditSum >= 1000000 && userInfo.CreditSum <= 3000000)
                     score += 9;
             }
-
-            if (userInfo.User.Age >= 29 && userInfo.User.Age < 60)
-                score += 12;
-            if (userInfo.User.Age >= 60 && userInfo.User.Age <= 72)
+            else if (userInfo.User.Age >= 29 && userInfo.User.Age < 60)
+                score += 14;
+            else if (userInfo.User.Age >= 60 && userInfo.User.Age <= 72)
                 if (userInfo.Zalog.HaveProperty || userInfo.Zalog.HaveSurety || userInfo.Zalog.Car.Age != -1)
                     score += 8;
             if (!userInfo.IsConvicted)
                 score += 15;
             if (userInfo.Employment.IsLabor)
                 score += 14;
-            if (userInfo.Employment.HaveIp)
+            else if (userInfo.Employment.HaveIp)
                 score += 12;
-            if (userInfo.Employment.IsFrilance)
+            else if (userInfo.Employment.IsFrilance)
                 score += 8;
-            if(userInfo.Employment.IsOld)
+            else if(userInfo.Employment.IsOld)
                 if (userInfo.User.Age < 70)
                     score += 5;
             if (userInfo.Target.IsPotreb)
                 score += 14;
-            if (userInfo.Target.HaveProperty)
+            else if (userInfo.Target.HaveProperty)
                 score += 8;
-            if (userInfo.Target.IsReCredit)
+            else if (userInfo.Target.IsReCredit)
                 score += 12;
             if (userInfo.Zalog.HaveProperty)
                 score += 14;
-            if (userInfo.Zalog.HaveSurety)
+            else if (userInfo.Zalog.HaveSurety)
                 score += 12;
-            if (userInfo.Zalog.Car.Age < 3)
+            else if (userInfo.Zalog.Car.Age < 3)
                 score += 8;
-            else
+            else if (userInfo.Zalog.Car.Age >= 3)
             {
                 score += 3;
             }
